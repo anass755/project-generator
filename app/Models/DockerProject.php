@@ -1,36 +1,35 @@
 <?php
 
-namespace App\Models;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-use Illuminate\Database\Eloquent\Model;
-
-class DockerProject extends Model
+return new class extends Migration
 {
+    public function up(): void
+    {
+        Schema::create('docker_projects', function (Blueprint $table) {
+            $table->id();
+            $table->string('project_name');
+            $table->string('domain_name');
+            $table->string('php_version');
+            $table->string('mysql_version');
+            $table->string('node_version')->nullable();
+            $table->integer('app_port');
+            $table->integer('phpmyadmin_port');
+            $table->string('db_username');
+            $table->string('db_password');
+            $table->string('db_root_password');
+            $table->boolean('include_redis')->default(false);
+            $table->boolean('include_mailhog')->default(false);
+            $table->boolean('include_node')->default(false);
+            $table->string('status')->default('active');
+            $table->timestamps();
+        });
+    }
 
-
-    protected $fillable = [
-        'project_name',
-        'domain_name',
-        'php_version',
-        'mysql_version',
-        'node_version',
-        'app_port',
-        'phpmyadmin_port',
-        'db_username',
-        'db_password',
-        'db_root_password',
-        'include_redis',
-        'include_mailhog',
-        'include_node',
-        'status',
-    ];
-
-    protected $casts = [
-        'include_redis' => 'boolean',
-        'include_mailhog' => 'boolean',
-        'include_node' => 'boolean',
-        'app_port' => 'integer',
-        'phpmyadmin_port' => 'integer',
-        'status' => 'integer',
-    ];
-}
+    public function down(): void
+    {
+        Schema::dropIfExists('docker_projects');
+    }
+};
