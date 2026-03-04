@@ -1,6 +1,6 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "anas/project-generator",
+    "name": "anass755/project-generator",
     "type": "project",
     "description": "Anas's Laravel Project Generator",
     "keywords": ["laravel", "framework", "project-generator", "anas"],
