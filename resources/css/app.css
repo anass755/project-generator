@@ -1,0 +1,417 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   DOCKER PROJECTS - resources/css/app.css
+   ============================================ */
+
+/* Header */
+.docker-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 24px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.docker-list-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #1a1a2e;
+    margin: 0;
+}
+
+.docker-list-subtitle {
+    color: #6b7280;
+    margin: 8px 0 0 0;
+    font-size: 15px;
+}
+
+/* Projects List */
+.docker-projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Project Card */
+.docker-project-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.docker-project-card:hover {
+    box-shadow: 0 6px 30px rgba(0,0,0,0.12);
+}
+
+/* Project Header */
+.docker-project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.docker-project-header:hover { background: #f8f9fa; }
+
+.docker-project-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+}
+
+.docker-project-icon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #b90c0c, #510101 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: white;
+}
+
+.docker-project-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0 0 8px 0;
+}
+
+.docker-project-meta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.docker-meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.docker-meta-item i { font-size: 14px; }
+
+/* Project Actions */
+.docker-project-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.docker-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.docker-status-running {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.docker-status-running i {
+    color: #10b981;
+    animation: dockerPulse 2s infinite;
+}
+
+.docker-status-stopped {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+@keyframes dockerPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.docker-accordion-toggle {
+    background: #f3f4f6;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #6b7280;
+}
+
+.docker-accordion-toggle:hover {
+    background: #e5e7eb;
+    color: #1f2937;
+}
+
+.docker-accordion-toggle.active {
+    transform: rotate(180deg);
+    background: #667eea;
+    color: white;
+}
+
+/* Accordion */
+.docker-accordion-content {
+    border-top: 2px solid #f3f4f6;
+    animation: dockerSlideDown 0.4s ease;
+}
+
+@keyframes dockerSlideDown {
+    from { opacity: 0; max-height: 0; }
+    to   { opacity: 1; max-height: 2000px; }
+}
+
+.docker-accordion-body { padding: 24px; }
+
+/* Details Grid */
+.docker-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.docker-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.docker-detail-item i { font-size: 24px; }
+
+.docker-detail-item small {
+    display: block;
+    font-size: 11px;
+    color: #6b7280;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.docker-detail-item strong {
+    display: block;
+    font-size: 15px;
+    color: #1a1a2e;
+    font-weight: 700;
+}
+
+/* Services */
+.docker-services-section { margin-bottom: 24px; }
+
+.docker-section-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 12px;
+}
+
+.docker-services-badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.docker-service-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+}
+
+.docker-service-redis    { background: linear-gradient(135deg, #dc2626, #f87171); }
+.docker-service-mailhog  { background: linear-gradient(135deg, #3b82f6, #60a5fa); }
+.docker-service-node     { background: linear-gradient(135deg, #10b981, #34d399); }
+
+/* Preview */
+.docker-preview-section { margin-bottom: 24px; }
+
+.docker-preview-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.docker-preview-tab {
+    padding: 10px 20px;
+    background: #f3f4f6;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #6b7280;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.docker-preview-tab:hover {
+    background: #e5e7eb;
+    color: #1f2937;
+}
+
+.docker-preview-tab.active {
+    background: linear-gradient(135deg, #b90c0c, #510101);
+    color: white;
+}
+
+.docker-preview-container {
+    background: #f8f9fa;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.docker-preview-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: white;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.docker-preview-url {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a2e;
+}
+
+.docker-preview-actions { display: flex; gap: 8px; }
+
+.docker-preview-btn {
+    background: #f3f4f6;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #6b7280;
+    text-decoration: none;
+}
+
+.docker-preview-btn:hover {
+    background: #e5e7eb;
+    color: #1f2937;
+}
+
+.docker-preview-frame-wrapper {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background: white;
+}
+
+.docker-preview-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.docker-preview-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    color: #6b7280;
+}
+
+.docker-preview-placeholder h5 {
+    color: #1a1a2e;
+    font-weight: 700;
+}
+
+/* Action Buttons */
+.docker-action-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Empty State */
+.docker-empty-state {
+    text-align: center;
+    padding: 80px 40px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.docker-empty-state h4 {
+    color: #1a1a2e;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+
+/* sidebar */
+.sidebar {
+    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.sidebar .nav-link:hover {
+    background: rgba(255,255,255,0.08) !important;
+    color: white !important;
+}
+
+.sidebar .nav-link.bg-primary {
+    background: linear-gradient(135deg, #b90c0c, #510101 100%) !important;
+    color: white !important;
+    box-shadow: 0 8px 20px rgba(215, 0, 32, 0.5);
+}
+
+/* Scrollbar */
+.sidebar .overflow-auto::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar .overflow-auto::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+}
+
+.sidebar .overflow-auto::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .sidebar.show {
+        transform: translateX(0);
+    }
+}
